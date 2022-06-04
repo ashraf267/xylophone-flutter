@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:english_words/english_words.dart';
 
 void main() => runApp(const XylophoneApp());
 
@@ -10,7 +11,7 @@ class XylophoneApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: SafeArea(
-          child: Container(),
+          child: Text(nouns.first),
         ),
       ),
     );
