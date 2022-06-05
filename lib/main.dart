@@ -6,6 +6,11 @@ void main() => runApp(const XylophoneApp());
 class XylophoneApp extends StatelessWidget {
   const XylophoneApp({Key? key}) : super(key: key);
 
+  void playSound(int soundNumber) {
+    final player = AudioCache();
+    player.play('assets_note$soundNumber.wav');
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,8 +21,7 @@ class XylophoneApp extends StatelessWidget {
               Expanded(
                 child: TxtBtn(
                   onTap: () {
-                    final player = AudioCache();
-                    player.play('assets_note1.wav');
+                    playSound(1);
                   },
                   decoration: const BoxDecoration(
                     color: Colors.red,
@@ -27,8 +31,7 @@ class XylophoneApp extends StatelessWidget {
               Expanded(
                 child: TxtBtn(
                   onTap: () {
-                    final player = AudioCache();
-                    player.play('assets_note2.wav');
+                    playSound(2);
                   },
                   decoration: const BoxDecoration(
                     color: Colors.orange,
@@ -38,8 +41,7 @@ class XylophoneApp extends StatelessWidget {
               Expanded(
                 child: TxtBtn(
                   onTap: () {
-                    final player = AudioCache();
-                    player.play('assets_note3.wav');
+                    playSound(3);
                   },
                   decoration: const BoxDecoration(
                     color: Colors.yellow,
@@ -49,8 +51,7 @@ class XylophoneApp extends StatelessWidget {
               Expanded(
                 child: TxtBtn(
                   onTap: () {
-                    final player = AudioCache();
-                    player.play('assets_note4.wav');
+                    playSound(4);
                   },
                   decoration: const BoxDecoration(
                     color: Colors.green,
@@ -60,8 +61,7 @@ class XylophoneApp extends StatelessWidget {
               Expanded(
                 child: TxtBtn(
                   onTap: () {
-                    final player = AudioCache();
-                    player.play('assets_note5.wav');
+                    playSound(5);
                   },
                   decoration: const BoxDecoration(
                     color: Colors.teal,
@@ -71,8 +71,7 @@ class XylophoneApp extends StatelessWidget {
               Expanded(
                 child: TxtBtn(
                   onTap: () {
-                    final player = AudioCache();
-                    player.play('assets_note6.wav');
+                    playSound(6);
                   },
                   decoration: const BoxDecoration(
                     color: Colors.blue,
@@ -82,8 +81,7 @@ class XylophoneApp extends StatelessWidget {
               Expanded(
                 child: TxtBtn(
                   onTap: () {
-                    final player = AudioCache();
-                    player.play('assets_note7.wav');
+                    playSound(7);
                   },
                   decoration: const BoxDecoration(
                     color: Colors.purple,
@@ -103,16 +101,16 @@ class TxtBtn extends StatelessWidget {
   const TxtBtn(
       {Key? key,
       required this.onTap,
-      this.width = 250,
-      this.height = 50,
       this.decoration,
+      this.width,
+      this.height,
       this.child})
       : super(key: key);
 
   final void Function()? onTap;
-  final double width;
-  final double height;
   final Decoration? decoration;
+  final double? width;
+  final double? height;
   final Widget? child;
 
   @override
