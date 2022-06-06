@@ -11,7 +11,7 @@ class XylophoneApp extends StatelessWidget {
   //   player.play('assets_note$soundNumber.wav');
   // }
 
-  Widget buildKey(int soundNumber, Color? keyColor) {
+  Widget buildKey(int soundNumber, Color? keyColor, String keySound) {
     return Expanded(
       child: TxtBtn(
         onTap: () {
@@ -20,6 +20,17 @@ class XylophoneApp extends StatelessWidget {
         },
         decoration: BoxDecoration(
           color: keyColor,
+        ),
+        child: Center(
+          child: Text(
+            keySound,
+            style: const TextStyle(
+              color: Colors.white70,
+              fontFamily: 'SourceSansPro',
+              fontWeight: FontWeight.bold,
+              fontSize: 25,
+            ),
+          ),
         ),
       ),
     );
@@ -32,13 +43,13 @@ class XylophoneApp extends StatelessWidget {
         body: SafeArea(
           child: Column(
             children: [
-              buildKey(1, Colors.red),
-              buildKey(2, Colors.orange),
-              buildKey(3, Colors.yellow),
-              buildKey(4, Colors.green),
-              buildKey(5, Colors.teal),
-              buildKey(6, Colors.blue),
-              buildKey(7, Colors.purple),
+              buildKey(1, Colors.red, 'd'),
+              buildKey(2, Colors.orange, 'r'),
+              buildKey(3, Colors.yellow, 'm'),
+              buildKey(4, Colors.green, 'f'),
+              buildKey(5, Colors.teal, 's'),
+              buildKey(6, Colors.blue, 'l'),
+              buildKey(7, Colors.purple, 't'),
             ],
           ),
         ),
